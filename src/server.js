@@ -6,7 +6,7 @@ import { logger } from "./middleware/logger.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
 
-import noteRouters from './routers/notesRouters.js';
+import notesRoutes from "./routes/notesRoutes.js"
 
 
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(noteRouters);
+app.use(notesRoutes);
 
 app.use(notFoundHandler);
 
