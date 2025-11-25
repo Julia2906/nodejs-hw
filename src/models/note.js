@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { model } from 'mongoose';
 
 const noteSchema = new Schema(
   {
@@ -10,6 +11,7 @@ const noteSchema = new Schema(
     content: {
       type: String,
       trim: true,
+      default: '',
     },
     tag: {
       type: String,
