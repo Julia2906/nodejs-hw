@@ -106,7 +106,7 @@ export const requestResetEmail = async (req, res) => {
 
   if (!user) {
     return res.status(200).json({
-      message: 'Password reset email not send',
+      message: 'Password reset email sent successfully',
     });
   }
 
@@ -135,7 +135,6 @@ export const requestResetEmail = async (req, res) => {
       html,
     });
   } catch (error) {
-    console.error('MAIL ERROR:', error);
     throw createHttpError(
       500,
       'Failed to send the email, please try again later.',
@@ -144,7 +143,7 @@ export const requestResetEmail = async (req, res) => {
 
   res
     .status(200)
-    .json({ message: 'Password reset email sent successfully))))' });
+    .json({ message: 'Password reset email sent successfully' });
 };
 
 export const resetPassword = async (req, res) => {
