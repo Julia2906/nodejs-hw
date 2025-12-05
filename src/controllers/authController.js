@@ -4,7 +4,7 @@ import { User } from '../models/user.js';
 import createHttpError from 'http-errors';
 import { Session } from '../models/session.js';
 import jwt from 'jsonwebtoken';
-import { sendMail } from '../utils/sendMail.js';
+import { sendEmail } from '../utils/sendMail.js';
 
 import handlebars from 'handlebars';
 import path from 'node:path';
@@ -128,7 +128,7 @@ export const requestResetEmail = async (req, res) => {
   });
 
   try {
-    await sendMail({
+    await sendEmail({
       from: process.env.SMTP_FROM,
       to: email,
       subject: 'Reset your password',
@@ -170,7 +170,7 @@ export const resetPassword = async (req, res) => {
     {password: hashedPassword},
   );
 
-  await Session.deleteMany({_id: user._id})
+  await Session.deleteMany({userId: user._id})
 
   res.status(200).json({
     message: 'Password reset successfully',

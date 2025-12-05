@@ -3,7 +3,6 @@ import { saveFileToCloudinary } from '../utils/saveFileToCloudinary.js';
 import { User } from '../models/user.js';
 
 export const updateUserAvatar = async (req, res) => {
-  console.log(req.file);
 
   if (!req.file) {
     throw createHttpError(400, 'No file');
